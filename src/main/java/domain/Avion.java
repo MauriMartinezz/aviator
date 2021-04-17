@@ -29,16 +29,22 @@ public class Avion {
         this.puntosDeVida -= damage;
     }
     public void dispararACon(Avion avion, Arma arma){
+        //Fuego amigo
         if(avion.getEquipo() == this.getEquipo()){
             System.out.println("No podes atacar a tu compañero de equipo.");
-        }
-        arma.dispararA(avion);
-        if(avion.getPuntosDeVida() <= 0 ){
-            System.out.println("Atacaste a " + avion.getNombre() + " con " + arma.getNombre() + " -" + arma.getDamage() + " puntos de vida");
-            System.out.println("Has derribado a " + avion.getNombre() + "!!!! ");
+
+            //Si no es del mismo equipo procede a atacar
         }else{
-            System.out.println("Atacaste a " + avion.getNombre() + " con " + arma.getNombre() + " -" + arma.getDamage());
-            System.out.println("Vida restante: "+ avion.getPuntosDeVida());
+            arma.dispararA(avion);
+            //Si la vida es igual o menor a 0 el avion se destruye
+            if(avion.getPuntosDeVida() <= 0 ){
+                System.out.println("Atacaste a " + avion.getNombre() + " con " + arma.getNombre() + ". -" + arma.getDamage() + " puntos de vida");
+                System.out.println("Has derribado a " + avion.getNombre() + "!!!! ");
+//                Si podes sacarle vida sin destruirlo procede a decir cuanta vida restante le queda al enemigo
+            }else{
+                System.out.println("Atacaste a " + avion.getNombre() + " con " + arma.getNombre() + " -" + arma.getDamage());
+                System.out.println("Vida restante: "+ avion.getPuntosDeVida());
+            }
         }
     }
 }
