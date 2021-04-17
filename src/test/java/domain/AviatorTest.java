@@ -11,14 +11,15 @@ public class AviatorTest {
 
     @Before
     public void init(){
-        this.avionAtacante = new Avion("Furtivo", "terrorista", 200);
-        this.avionAtacado = new Avion("Bombardero", "pacifista", 250);
+        this.avionAtacante = new Avion("Furtivo", "pacifista", 200);
+        this.avionAtacado = new Avion("Bombardero", "terrorista", 250);
 
-        this.ametralladora = new Arma("Ametralladora", 60);
+        this.ametralladora = new Arma("Ametralladora", 260);
     }
+
     @Test
-    public void avionAtacaAOtro(){
-        this.avionAtacante.dispararACon(avionAtacado, ametralladora);
-        Assert.assertEquals(190, this.avionAtacado.getPuntosDeVida().intValue());
+    public void avionAtacaOtroAvion(){
+            this.avionAtacante.dispararACon(avionAtacado, ametralladora);
+            Assert.assertEquals(-10, this.avionAtacado.getPuntosDeVida().intValue());
     }
 }

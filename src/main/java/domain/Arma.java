@@ -18,6 +18,7 @@ public class Arma {
     }
 
     public void dispararA(Avion avionAtacado){
+        
         avionAtacado.disminuirVida(this.damage);
     }
 }
